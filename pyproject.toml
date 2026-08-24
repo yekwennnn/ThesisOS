@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "thesisos"
+version = "0.1.0"
+description = "An auditable ThesisDiff core for long-term investment research."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{name = "ThesisOS Contributors"}]
+dependencies = [
+  "jsonschema[format]>=4.23,<5",
+  "pypdf>=6.0,<7",
+]
+
+[project.scripts]
+thesisos = "thesisos.cli:main"
+
+[tool.setuptools]
+packages = ["thesisos", "thesisos._schemas", "thesisos._prompts"]
+
+[tool.setuptools.package-dir]
+thesisos = "src/thesisos"
+"thesisos._schemas" = "schemas"
+"thesisos._prompts" = "prompts"
+
+[tool.setuptools.package-data]
+"thesisos._schemas" = ["*.json"]
+"thesisos._prompts" = ["*.md"]

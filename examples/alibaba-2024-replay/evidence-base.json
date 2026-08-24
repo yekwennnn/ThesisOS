@@ -1,0 +1,312 @@
+[
+  {
+    "schema_version": "1.0.0",
+    "evidence_id": "baba-base-revenue",
+    "company_id": "alibaba-group",
+    "statement": "截至 2023-12-31 的季度，阿里巴巴收入为人民币 2603.48 亿元，同比增长 5%。",
+    "content_class": "source_fact",
+    "attribution": "source_document",
+    "confidence": "high",
+    "verification_status": "verified",
+    "available_as_of": "2024-02-07T09:00:00Z",
+    "reported_for": "Quarter ended 2023-12-31",
+    "citations": [
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-base-revenue",
+        "source_document_id": "baba-results-2024-02-07",
+        "snapshot_sha256": "e0e1578d01d16841a0c6242068abd3c6a43efa4d3039ecbb72ad708d04124257",
+        "quotation_mode": "exact_quote",
+        "locator": {
+          "kind": "page",
+          "page": 1,
+          "section": "BUSINESS HIGHLIGHTS"
+        },
+        "quoted_text": "RMB260,348 million (US$36,669 million), an increase of 5% year-over-year"
+      }
+    ],
+    "tags": ["revenue", "financial"],
+    "created_at": "2024-02-07T10:00:00Z"
+  },
+  {
+    "schema_version": "1.0.0",
+    "evidence_id": "baba-base-commerce",
+    "company_id": "alibaba-group",
+    "statement": "截至 2023-12-31 的季度，淘天集团收入为人民币 1290.70 亿元，同比增长 2%；订单量在季度后半段同比双位数增长，88VIP 会员超过 3200 万。",
+    "content_class": "source_fact",
+    "attribution": "source_document",
+    "confidence": "high",
+    "verification_status": "verified",
+    "available_as_of": "2024-02-07T09:00:00Z",
+    "reported_for": "Quarter ended 2023-12-31",
+    "citations": [
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-base-commerce-revenue",
+        "source_document_id": "baba-results-2024-02-07",
+        "snapshot_sha256": "e0e1578d01d16841a0c6242068abd3c6a43efa4d3039ecbb72ad708d04124257",
+        "quotation_mode": "exact_quote",
+        "locator": {
+          "kind": "page",
+          "page": 2,
+          "section": "Taobao and Tmall Group"
+        },
+        "quoted_text": "RMB129,070 million (US$18,179 million), a growth of 2% year-over-year"
+      },
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-base-commerce-orders",
+        "source_document_id": "baba-results-2024-02-07",
+        "snapshot_sha256": "e0e1578d01d16841a0c6242068abd3c6a43efa4d3039ecbb72ad708d04124257",
+        "quotation_mode": "exact_quote",
+        "locator": {
+          "kind": "page",
+          "page": 2,
+          "section": "Taobao and Tmall Group"
+        },
+        "quoted_text": "order volume grew double digits year-over-year"
+      },
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-base-commerce-engagement",
+        "source_document_id": "baba-results-2024-02-07",
+        "snapshot_sha256": "e0e1578d01d16841a0c6242068abd3c6a43efa4d3039ecbb72ad708d04124257",
+        "quotation_mode": "exact_quote",
+        "locator": {
+          "kind": "page",
+          "page": 2,
+          "section": "Taobao and Tmall Group"
+        },
+        "quoted_text": "surpassing 32 million"
+      }
+    ],
+    "tags": ["commerce", "engagement"],
+    "created_at": "2024-02-07T10:00:00Z"
+  },
+  {
+    "schema_version": "1.0.0",
+    "evidence_id": "baba-base-cloud",
+    "company_id": "alibaba-group",
+    "statement": "截至 2023-12-31 的季度，云智能集团收入为人民币 280.66 亿元，同比增长 3%。",
+    "content_class": "source_fact",
+    "attribution": "source_document",
+    "confidence": "high",
+    "verification_status": "verified",
+    "available_as_of": "2024-02-07T09:00:00Z",
+    "reported_for": "Quarter ended 2023-12-31",
+    "citations": [
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-base-cloud",
+        "source_document_id": "baba-results-2024-02-07",
+        "snapshot_sha256": "e0e1578d01d16841a0c6242068abd3c6a43efa4d3039ecbb72ad708d04124257",
+        "quotation_mode": "exact_quote",
+        "locator": {
+          "kind": "page",
+          "page": 2,
+          "section": "Cloud Intelligence Group"
+        },
+        "quoted_text": "RMB28,066 million (US$3,953 million), a growth of 3% year-over-year"
+      }
+    ],
+    "tags": ["cloud", "revenue-quality"],
+    "created_at": "2024-02-07T10:00:00Z"
+  },
+  {
+    "schema_version": "1.0.0",
+    "evidence_id": "baba-base-cloud-quality-explanation",
+    "company_id": "alibaba-group",
+    "statement": "管理层解释称，公司正减少低毛利项目制合同，公共云产品与服务的健康增长对盈利改善有所贡献。",
+    "content_class": "source_opinion",
+    "attribution": "management",
+    "confidence": "high",
+    "verification_status": "verified",
+    "available_as_of": "2024-02-07T09:00:00Z",
+    "reported_for": "Quarter ended 2023-12-31",
+    "citations": [
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-base-cloud-contract-explanation",
+        "source_document_id": "baba-results-2024-02-07",
+        "snapshot_sha256": "e0e1578d01d16841a0c6242068abd3c6a43efa4d3039ecbb72ad708d04124257",
+        "quotation_mode": "exact_quote",
+        "locator": {
+          "kind": "page",
+          "page": 2,
+          "section": "Cloud Intelligence Group"
+        },
+        "quoted_text": "reducing the revenue from low-margin project-based contracts"
+      },
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-base-cloud-profit-explanation",
+        "source_document_id": "baba-results-2024-02-07",
+        "snapshot_sha256": "e0e1578d01d16841a0c6242068abd3c6a43efa4d3039ecbb72ad708d04124257",
+        "quotation_mode": "exact_quote",
+        "locator": {
+          "kind": "page",
+          "page": 2,
+          "section": "Cloud Intelligence Group"
+        },
+        "quoted_text": "contributed to profitability improvement"
+      }
+    ],
+    "tags": ["cloud", "management-explanation", "revenue-quality"],
+    "created_at": "2024-02-07T10:00:00Z"
+  },
+  {
+    "schema_version": "1.0.0",
+    "evidence_id": "baba-base-free-cash-flow",
+    "company_id": "alibaba-group",
+    "statement": "截至 2023-12-31 的季度，自由现金流为人民币 565.40 亿元，同比下降 31%。",
+    "content_class": "source_fact",
+    "attribution": "source_document",
+    "confidence": "high",
+    "verification_status": "verified",
+    "available_as_of": "2024-02-07T09:00:00Z",
+    "reported_for": "Quarter ended 2023-12-31",
+    "citations": [
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-base-free-cash-flow",
+        "source_document_id": "baba-results-2024-02-07",
+        "snapshot_sha256": "e0e1578d01d16841a0c6242068abd3c6a43efa4d3039ecbb72ad708d04124257",
+        "quotation_mode": "exact_quote",
+        "locator": {
+          "kind": "page",
+          "page": 2,
+          "section": "BUSINESS HIGHLIGHTS"
+        },
+        "quoted_text": "RMB56,540 million (US$7,963 million), a decrease of 31%"
+      }
+    ],
+    "tags": ["free-cash-flow", "capex"],
+    "created_at": "2024-02-07T10:00:00Z"
+  },
+  {
+    "schema_version": "1.0.0",
+    "evidence_id": "baba-base-free-cash-flow-explanation",
+    "company_id": "alibaba-group",
+    "statement": "管理层将自由现金流同比下降归因于资本开支增加，以及所得税付款时点和部分业务营运资本变化等一次性因素。",
+    "content_class": "source_opinion",
+    "attribution": "management",
+    "confidence": "high",
+    "verification_status": "verified",
+    "available_as_of": "2024-02-07T09:00:00Z",
+    "reported_for": "Quarter ended 2023-12-31",
+    "citations": [
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-base-free-cash-flow-explanation",
+        "source_document_id": "baba-results-2024-02-07",
+        "snapshot_sha256": "e0e1578d01d16841a0c6242068abd3c6a43efa4d3039ecbb72ad708d04124257",
+        "quotation_mode": "exact_quote",
+        "locator": {
+          "kind": "page",
+          "page": 2,
+          "section": "BUSINESS HIGHLIGHTS"
+        },
+        "quoted_text": "attributed to increased capex and several one-time factors"
+      },
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-base-free-cash-flow-one-offs",
+        "source_document_id": "baba-results-2024-02-07",
+        "snapshot_sha256": "e0e1578d01d16841a0c6242068abd3c6a43efa4d3039ecbb72ad708d04124257",
+        "quotation_mode": "exact_quote",
+        "locator": {
+          "kind": "page",
+          "page": 2,
+          "section": "BUSINESS HIGHLIGHTS"
+        },
+        "quoted_text": "timing of income tax payments and working capital changes"
+      }
+    ],
+    "tags": ["free-cash-flow", "management-explanation", "capex"],
+    "created_at": "2024-02-07T10:00:00Z"
+  },
+  {
+    "schema_version": "1.0.0",
+    "evidence_id": "baba-base-buyback",
+    "company_id": "alibaba-group",
+    "statement": "2023 日历年内，股份回购在计入股权激励发行后使流通股净减少 3.3%；董事会另批准将回购计划增加 250 亿美元。",
+    "content_class": "source_fact",
+    "attribution": "source_document",
+    "confidence": "high",
+    "verification_status": "verified",
+    "available_as_of": "2024-02-07T09:00:00Z",
+    "reported_for": "Calendar year 2023 and authorization through March 2027",
+    "citations": [
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-base-buyback",
+        "source_document_id": "baba-results-2024-02-07",
+        "snapshot_sha256": "e0e1578d01d16841a0c6242068abd3c6a43efa4d3039ecbb72ad708d04124257",
+        "quotation_mode": "exact_quote",
+        "locator": {
+          "kind": "page",
+          "page": 4,
+          "section": "Upsize of Share Repurchase Program"
+        },
+        "quoted_text": "net reduction of 3.3%"
+      },
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-base-buyback-authorization",
+        "source_document_id": "baba-results-2024-02-07",
+        "snapshot_sha256": "e0e1578d01d16841a0c6242068abd3c6a43efa4d3039ecbb72ad708d04124257",
+        "quotation_mode": "exact_quote",
+        "locator": {
+          "kind": "page",
+          "page": 4,
+          "section": "Upsize of Share Repurchase Program"
+        },
+        "quoted_text": "increase of US$25 billion"
+      }
+    ],
+    "tags": ["buyback", "share-count"],
+    "created_at": "2024-02-07T10:00:00Z"
+  },
+  {
+    "schema_version": "1.0.0",
+    "evidence_id": "baba-base-management-investment-plan",
+    "company_id": "alibaba-group",
+    "statement": "管理层表示将增加投入以改善淘天用户核心体验，并聚焦公共云产品。",
+    "content_class": "source_opinion",
+    "attribution": "management",
+    "confidence": "high",
+    "verification_status": "verified",
+    "available_as_of": "2024-02-07T09:00:00Z",
+    "reported_for": "Management outlook issued 2024-02-07",
+    "citations": [
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-base-management-investment-plan",
+        "source_document_id": "baba-results-2024-02-07",
+        "snapshot_sha256": "e0e1578d01d16841a0c6242068abd3c6a43efa4d3039ecbb72ad708d04124257",
+        "quotation_mode": "exact_quote",
+        "locator": {
+          "kind": "page",
+          "page": 1,
+          "section": "Chief Executive Officer statement"
+        },
+        "quoted_text": "step up investment"
+      },
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-base-management-public-cloud-plan",
+        "source_document_id": "baba-results-2024-02-07",
+        "snapshot_sha256": "e0e1578d01d16841a0c6242068abd3c6a43efa4d3039ecbb72ad708d04124257",
+        "quotation_mode": "exact_quote",
+        "locator": {
+          "kind": "page",
+          "page": 1,
+          "section": "Chief Executive Officer statement"
+        },
+        "quoted_text": "focus our resources on developing public cloud products"
+      }
+    ],
+    "tags": ["management", "investment-plan"],
+    "created_at": "2024-02-07T10:00:00Z"
+  }
+]

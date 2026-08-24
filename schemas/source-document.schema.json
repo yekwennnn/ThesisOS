@@ -1,0 +1,181 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thesisos.dev/schemas/source-document.schema.json",
+  "title": "ThesisOS Source Document",
+  "description": "Immutable metadata and snapshot identity for a source used by ThesisDiff.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "source_document_id",
+    "company_id",
+    "title",
+    "document_type",
+    "media_type",
+    "source_class",
+    "language",
+    "published_on",
+    "publicly_available_at",
+    "reporting_period",
+    "snapshot",
+    "ingested_at"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "source_document_id": {
+      "$ref": "#/$defs/stableId"
+    },
+    "company_id": {
+      "$ref": "#/$defs/stableId"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500
+    },
+    "document_type": {
+      "type": "string",
+      "enum": [
+        "annual_report",
+        "interim_report",
+        "quarterly_report",
+        "earnings_release",
+        "earnings_call_transcript",
+        "regulatory_filing",
+        "company_announcement",
+        "research_note",
+        "investor_note",
+        "other"
+      ]
+    },
+    "media_type": {
+      "type": "string",
+      "enum": [
+        "pdf",
+        "markdown",
+        "plain_text"
+      ]
+    },
+    "source_class": {
+      "type": "string",
+      "enum": [
+        "primary",
+        "secondary",
+        "user_provided"
+      ]
+    },
+    "issuer_or_author": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 300
+    },
+    "language": {
+      "type": "string",
+      "description": "BCP 47 language tag, for example zh-Hans, zh-Hant, or en.",
+      "pattern": "^[A-Za-z]{2,8}(?:-[A-Za-z0-9]{1,8})*$"
+    },
+    "published_on": {
+      "type": "string",
+      "format": "date"
+    },
+    "publicly_available_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Earliest known time at which the material could legally enter a historical replay."
+    },
+    "reporting_period": {
+      "$ref": "#/$defs/reportingPeriod"
+    },
+    "original_uri": {
+      "type": "string",
+      "format": "uri"
+    },
+    "page_count": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Optional physical page count for bounded PDF citation checks."
+    },
+    "snapshot": {
+      "$ref": "#/$defs/snapshot"
+    },
+    "ingested_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "stableId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^(?!(?:[Cc][Oo][Nn]|[Pp][Rr][Nn]|[Aa][Uu][Xx]|[Nn][Uu][Ll]|[Cc][Oo][Mm][1-9]|[Ll][Pp][Tt][1-9])(?:\\.|$))[A-Za-z0-9](?:[A-Za-z0-9._-]*[A-Za-z0-9_-])?$"
+    },
+    "reportingPeriod": {
+      "type": "object",
+      "required": [
+        "kind",
+        "label",
+        "start_on",
+        "end_on"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "fiscal_quarter",
+            "fiscal_half",
+            "fiscal_year",
+            "point_in_time",
+            "not_applicable"
+          ]
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "start_on": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "end_on": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        }
+      },
+      "additionalProperties": false
+    },
+    "snapshot": {
+      "type": "object",
+      "required": [
+        "sha256",
+        "storage_uri",
+        "byte_size"
+      ],
+      "properties": {
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "storage_uri": {
+          "type": "string",
+          "format": "uri",
+          "description": "Immutable local, object-store, or content-addressed snapshot URI."
+        },
+        "byte_size": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

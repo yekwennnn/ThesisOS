@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0.0",
+  "suite_id": "future-leakage",
+  "description": "Reject information that was unavailable at either the frozen baseline cutoff or the replay analysis cutoff.",
+  "golden_case": "../historical-replay/alibaba-2024-q4/case.json",
+  "mutations": [
+    {
+      "mutation_id": "base-evidence-after-base-cutoff",
+      "operation": "set",
+      "target": {
+        "artifact": "evidence",
+        "match": {
+          "evidence_id": "baba-base-revenue"
+        }
+      },
+      "pointer": "/available_as_of",
+      "value": "2024-02-08T00:00:00Z",
+      "expected_failed_checks": [
+        "base_replay_cutoff_integrity"
+      ]
+    },
+    {
+      "mutation_id": "new-source-after-analysis-cutoff",
+      "operation": "set",
+      "target": {
+        "artifact": "documents",
+        "match": {
+          "source_document_id": "baba-results-2024-05-14"
+        }
+      },
+      "pointer": "/publicly_available_at",
+      "value": "2024-05-16T00:00:00Z",
+      "expected_failed_checks": [
+        "future_information_leakage"
+      ]
+    }
+  ]
+}

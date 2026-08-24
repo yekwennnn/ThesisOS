@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "source_document_id": "baba-results-2024-02-07",
+  "company_id": "alibaba-group",
+  "title": "Alibaba Group Announces December Quarter 2023 Results",
+  "document_type": "earnings_release",
+  "media_type": "pdf",
+  "source_class": "primary",
+  "issuer_or_author": "Alibaba Group Holding Limited",
+  "language": "en",
+  "published_on": "2024-02-07",
+  "publicly_available_at": "2024-02-07T09:00:00Z",
+  "reporting_period": {
+    "kind": "fiscal_quarter",
+    "label": "Fiscal 2024 December quarter",
+    "start_on": "2023-10-01",
+    "end_on": "2023-12-31"
+  },
+  "original_uri": "https://data.alibabagroup.com/ecms-files/1532295521/8d278cf5-0e7b-4374-aa60-a184ddeb571a/Alibaba%20Group%20Announces%20December%20Quarter%202023%20Results.pdf",
+  "page_count": 29,
+  "snapshot": {
+    "sha256": "e0e1578d01d16841a0c6242068abd3c6a43efa4d3039ecbb72ad708d04124257",
+    "storage_uri": "urn:sha256:e0e1578d01d16841a0c6242068abd3c6a43efa4d3039ecbb72ad708d04124257",
+    "byte_size": 742346
+  },
+  "ingested_at": "2024-02-07T10:00:00Z"
+}

@@ -1,0 +1,518 @@
+[
+  {
+    "schema_version": "1.0.0",
+    "evidence_id": "baba-new-commerce-revenue",
+    "company_id": "alibaba-group",
+    "statement": "截至 2024-03-31 的季度，淘天集团收入为人民币 932.16 亿元，同比增长 4%；客户管理收入同比增长 5%。",
+    "content_class": "source_fact",
+    "attribution": "source_document",
+    "confidence": "high",
+    "verification_status": "verified",
+    "available_as_of": "2024-05-14T11:00:00Z",
+    "reported_for": "Quarter ended 2024-03-31",
+    "citations": [
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-new-commerce-revenue",
+        "source_document_id": "baba-results-2024-05-14",
+        "snapshot_sha256": "f2a35600ac20f5a34506fc3d7ec6b91f67f1f0d4a195be2420e83d3a8b1466e5",
+        "quotation_mode": "table_value",
+        "locator": {
+          "kind": "table",
+          "table": "March quarter revenue by segment",
+          "page": 8,
+          "row": "Total Taobao and Tmall Group",
+          "column": "2024 RMB and YoY change"
+        },
+        "quoted_text": "93,216; 4%"
+      },
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-new-commerce-cmr",
+        "source_document_id": "baba-results-2024-05-14",
+        "snapshot_sha256": "f2a35600ac20f5a34506fc3d7ec6b91f67f1f0d4a195be2420e83d3a8b1466e5",
+        "quotation_mode": "table_value",
+        "locator": {
+          "kind": "table",
+          "table": "March quarter revenue by segment",
+          "page": 8,
+          "row": "Customer management",
+          "column": "2024 RMB and YoY change"
+        },
+        "quoted_text": "63,574; 5%"
+      }
+    ],
+    "tags": ["commerce", "revenue", "gmv"],
+    "created_at": "2024-05-14T12:00:00Z"
+  },
+  {
+    "schema_version": "1.0.0",
+    "evidence_id": "baba-new-commerce-engagement",
+    "company_id": "alibaba-group",
+    "statement": "截至 2024-03-31 的季度，线上 GMV 与订单量均同比双位数增长，购买人数与购买频次增加，88VIP 会员超过 3500 万。",
+    "content_class": "source_fact",
+    "attribution": "source_document",
+    "confidence": "high",
+    "verification_status": "verified",
+    "available_as_of": "2024-05-14T11:00:00Z",
+    "reported_for": "Quarter ended 2024-03-31",
+    "citations": [
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-new-commerce-engagement",
+        "source_document_id": "baba-results-2024-05-14",
+        "snapshot_sha256": "f2a35600ac20f5a34506fc3d7ec6b91f67f1f0d4a195be2420e83d3a8b1466e5",
+        "quotation_mode": "exact_quote",
+        "locator": {
+          "kind": "page",
+          "page": 3,
+          "section": "Taobao and Tmall Group"
+        },
+        "quoted_text": "surpassing 35 million"
+      },
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-new-commerce-gmv-orders",
+        "source_document_id": "baba-results-2024-05-14",
+        "snapshot_sha256": "f2a35600ac20f5a34506fc3d7ec6b91f67f1f0d4a195be2420e83d3a8b1466e5",
+        "quotation_mode": "exact_quote",
+        "locator": {
+          "kind": "page",
+          "page": 3,
+          "section": "Taobao and Tmall Group"
+        },
+        "quoted_text": "double-digit online GMV and order growth year-over-year"
+      },
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-new-commerce-purchasers-frequency",
+        "source_document_id": "baba-results-2024-05-14",
+        "snapshot_sha256": "f2a35600ac20f5a34506fc3d7ec6b91f67f1f0d4a195be2420e83d3a8b1466e5",
+        "quotation_mode": "exact_quote",
+        "locator": {
+          "kind": "page",
+          "page": 3,
+          "section": "Taobao and Tmall Group"
+        },
+        "quoted_text": "strong increase in the number of purchasers and purchase frequency"
+      }
+    ],
+    "tags": ["commerce", "engagement", "88vip"],
+    "created_at": "2024-05-14T12:00:00Z"
+  },
+  {
+    "schema_version": "1.0.0",
+    "evidence_id": "baba-new-commerce-take-rate",
+    "company_id": "alibaba-group",
+    "statement": "截至 2024-03-31 的季度，淘天整体货币化率同比下降。",
+    "content_class": "source_fact",
+    "attribution": "source_document",
+    "confidence": "high",
+    "verification_status": "verified",
+    "available_as_of": "2024-05-14T11:00:00Z",
+    "reported_for": "Quarter ended 2024-03-31",
+    "citations": [
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-new-commerce-take-rate",
+        "source_document_id": "baba-results-2024-05-14",
+        "snapshot_sha256": "f2a35600ac20f5a34506fc3d7ec6b91f67f1f0d4a195be2420e83d3a8b1466e5",
+        "quotation_mode": "exact_quote",
+        "locator": {
+          "kind": "page",
+          "page": 9,
+          "section": "Taobao and Tmall Group - China Commerce Retail Business"
+        },
+        "quoted_text": "decline in overall take rate"
+      }
+    ],
+    "tags": ["commerce", "take-rate", "monetization"],
+    "created_at": "2024-05-14T12:00:00Z"
+  },
+  {
+    "schema_version": "1.0.0",
+    "evidence_id": "baba-new-commerce-take-rate-explanation",
+    "company_id": "alibaba-group",
+    "statement": "管理层解释称，整体货币化率同比下降，主要因为线上 GMV 增量偏向淘宝商家，并引入了当前货币化率较低的新模式。",
+    "content_class": "source_opinion",
+    "attribution": "management",
+    "confidence": "high",
+    "verification_status": "verified",
+    "available_as_of": "2024-05-14T11:00:00Z",
+    "reported_for": "Quarter ended 2024-03-31",
+    "citations": [
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-new-commerce-take-rate-explanation",
+        "source_document_id": "baba-results-2024-05-14",
+        "snapshot_sha256": "f2a35600ac20f5a34506fc3d7ec6b91f67f1f0d4a195be2420e83d3a8b1466e5",
+        "quotation_mode": "exact_quote",
+        "locator": {
+          "kind": "page",
+          "page": 9,
+          "section": "Taobao and Tmall Group - China Commerce Retail Business"
+        },
+        "quoted_text": "increase in online GMV mainly coming from Taobao merchants"
+      },
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-new-commerce-low-monetization-models",
+        "source_document_id": "baba-results-2024-05-14",
+        "snapshot_sha256": "f2a35600ac20f5a34506fc3d7ec6b91f67f1f0d4a195be2420e83d3a8b1466e5",
+        "quotation_mode": "exact_quote",
+        "locator": {
+          "kind": "page",
+          "page": 9,
+          "section": "Taobao and Tmall Group - China Commerce Retail Business"
+        },
+        "quoted_text": "new models that currently have low monetization rates"
+      }
+    ],
+    "tags": ["commerce", "take-rate", "management-explanation"],
+    "created_at": "2024-05-14T12:00:00Z"
+  },
+  {
+    "schema_version": "1.0.0",
+    "evidence_id": "baba-new-commerce-ebita",
+    "company_id": "alibaba-group",
+    "statement": "截至 2024-03-31 的季度，淘天集团调整后 EBITA 为人民币 385.01 亿元，同比下降 1%。",
+    "content_class": "source_fact",
+    "attribution": "source_document",
+    "confidence": "high",
+    "verification_status": "verified",
+    "available_as_of": "2024-05-14T11:00:00Z",
+    "reported_for": "Quarter ended 2024-03-31",
+    "citations": [
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-new-commerce-ebita",
+        "source_document_id": "baba-results-2024-05-14",
+        "snapshot_sha256": "f2a35600ac20f5a34506fc3d7ec6b91f67f1f0d4a195be2420e83d3a8b1466e5",
+        "quotation_mode": "table_value",
+        "locator": {
+          "kind": "table",
+          "table": "March quarter adjusted EBITA by segment",
+          "page": 9,
+          "row": "Taobao and Tmall Group",
+          "column": "2024 RMB and YoY change"
+        },
+        "quoted_text": "38,501; (1%)"
+      }
+    ],
+    "tags": ["commerce", "adjusted-ebita", "investment"],
+    "created_at": "2024-05-14T12:00:00Z"
+  },
+  {
+    "schema_version": "1.0.0",
+    "evidence_id": "baba-new-commerce-ebita-explanation",
+    "company_id": "alibaba-group",
+    "statement": "管理层解释称，淘天调整后 EBITA 的同比下降主要来自用户体验与技术基础设施投入增加，客户管理服务收入增长形成了部分抵消。",
+    "content_class": "source_opinion",
+    "attribution": "management",
+    "confidence": "high",
+    "verification_status": "verified",
+    "available_as_of": "2024-05-14T11:00:00Z",
+    "reported_for": "Quarter ended 2024-03-31",
+    "citations": [
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-new-commerce-ebita-explanation",
+        "source_document_id": "baba-results-2024-05-14",
+        "snapshot_sha256": "f2a35600ac20f5a34506fc3d7ec6b91f67f1f0d4a195be2420e83d3a8b1466e5",
+        "quotation_mode": "exact_quote",
+        "locator": {
+          "kind": "page",
+          "page": 10,
+          "section": "Taobao and Tmall Group - Segment adjusted EBITA"
+        },
+        "quoted_text": "increase in investment in user experience"
+      },
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-new-commerce-technology-infrastructure",
+        "source_document_id": "baba-results-2024-05-14",
+        "snapshot_sha256": "f2a35600ac20f5a34506fc3d7ec6b91f67f1f0d4a195be2420e83d3a8b1466e5",
+        "quotation_mode": "exact_quote",
+        "locator": {
+          "kind": "page",
+          "page": 10,
+          "section": "Taobao and Tmall Group - Segment adjusted EBITA"
+        },
+        "quoted_text": "and technology infrastructure"
+      },
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-new-commerce-cmr-offset",
+        "source_document_id": "baba-results-2024-05-14",
+        "snapshot_sha256": "f2a35600ac20f5a34506fc3d7ec6b91f67f1f0d4a195be2420e83d3a8b1466e5",
+        "quotation_mode": "exact_quote",
+        "locator": {
+          "kind": "page",
+          "page": 10,
+          "section": "Taobao and Tmall Group - Segment adjusted EBITA"
+        },
+        "quoted_text": "partly offset by the increase in revenue from customer management service"
+      }
+    ],
+    "tags": ["commerce", "adjusted-ebita", "management-explanation"],
+    "created_at": "2024-05-14T12:00:00Z"
+  },
+  {
+    "schema_version": "1.0.0",
+    "evidence_id": "baba-new-cloud",
+    "company_id": "alibaba-group",
+    "statement": "截至 2024-03-31 的季度，云智能集团收入为人民币 255.95 亿元，同比增长 3%；核心公共云产品收入同比双位数增长，调整后 EBITA 为人民币 14.32 亿元，同比增长 45%。",
+    "content_class": "source_fact",
+    "attribution": "source_document",
+    "confidence": "high",
+    "verification_status": "verified",
+    "available_as_of": "2024-05-14T11:00:00Z",
+    "reported_for": "Quarter ended 2024-03-31",
+    "citations": [
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-new-cloud-revenue",
+        "source_document_id": "baba-results-2024-05-14",
+        "snapshot_sha256": "f2a35600ac20f5a34506fc3d7ec6b91f67f1f0d4a195be2420e83d3a8b1466e5",
+        "quotation_mode": "table_value",
+        "locator": {
+          "kind": "table",
+          "table": "March quarter revenue by segment",
+          "page": 8,
+          "row": "Cloud Intelligence Group",
+          "column": "2024 RMB and YoY change"
+        },
+        "quoted_text": "25,595; 3%"
+      },
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-new-cloud-ebita",
+        "source_document_id": "baba-results-2024-05-14",
+        "snapshot_sha256": "f2a35600ac20f5a34506fc3d7ec6b91f67f1f0d4a195be2420e83d3a8b1466e5",
+        "quotation_mode": "table_value",
+        "locator": {
+          "kind": "table",
+          "table": "March quarter adjusted EBITA by segment",
+          "page": 9,
+          "row": "Cloud Intelligence Group",
+          "column": "2024 RMB and YoY change"
+        },
+        "quoted_text": "1,432; 45%"
+      },
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-new-core-public-cloud-growth",
+        "source_document_id": "baba-results-2024-05-14",
+        "snapshot_sha256": "f2a35600ac20f5a34506fc3d7ec6b91f67f1f0d4a195be2420e83d3a8b1466e5",
+        "quotation_mode": "exact_quote",
+        "locator": {
+          "kind": "page",
+          "page": 3,
+          "section": "Cloud Intelligence Group"
+        },
+        "quoted_text": "double-digit year-over-year growth in revenue"
+      }
+    ],
+    "tags": ["cloud", "revenue", "adjusted-ebita"],
+    "created_at": "2024-05-14T12:00:00Z"
+  },
+  {
+    "schema_version": "1.0.0",
+    "evidence_id": "baba-new-aidc-growth",
+    "company_id": "alibaba-group",
+    "statement": "截至 2024-03-31 的季度，AIDC 收入为人民币 274.48 亿元，同比增长 45%，其市场平台合计订单同比增长 20%。",
+    "content_class": "source_fact",
+    "attribution": "source_document",
+    "confidence": "high",
+    "verification_status": "verified",
+    "available_as_of": "2024-05-14T11:00:00Z",
+    "reported_for": "Quarter ended 2024-03-31",
+    "citations": [
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-new-aidc-growth",
+        "source_document_id": "baba-results-2024-05-14",
+        "snapshot_sha256": "f2a35600ac20f5a34506fc3d7ec6b91f67f1f0d4a195be2420e83d3a8b1466e5",
+        "quotation_mode": "exact_quote",
+        "locator": {
+          "kind": "page",
+          "page": 3,
+          "section": "Alibaba International Digital Commerce Group"
+        },
+        "quoted_text": "revenue from AIDC grew 45% year-over-year to RMB27,448 million"
+      },
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-new-aidc-orders",
+        "source_document_id": "baba-results-2024-05-14",
+        "snapshot_sha256": "f2a35600ac20f5a34506fc3d7ec6b91f67f1f0d4a195be2420e83d3a8b1466e5",
+        "quotation_mode": "exact_quote",
+        "locator": {
+          "kind": "page",
+          "page": 3,
+          "section": "Alibaba International Digital Commerce Group"
+        },
+        "quoted_text": "combined orders of AIDC’s marketplaces grew 20% year-over-year"
+      }
+    ],
+    "tags": ["international-commerce", "revenue", "orders"],
+    "created_at": "2024-05-14T12:00:00Z"
+  },
+  {
+    "schema_version": "1.0.0",
+    "evidence_id": "baba-new-aidc-loss",
+    "company_id": "alibaba-group",
+    "statement": "截至 2024-03-31 的季度，AIDC 调整后 EBITA 亏损为人民币 40.85 亿元，上年同期亏损人民币 21.71 亿元，亏损同比扩大。",
+    "content_class": "source_fact",
+    "attribution": "source_document",
+    "confidence": "high",
+    "verification_status": "verified",
+    "available_as_of": "2024-05-14T11:00:00Z",
+    "reported_for": "Quarter ended 2024-03-31",
+    "citations": [
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-new-aidc-loss",
+        "source_document_id": "baba-results-2024-05-14",
+        "snapshot_sha256": "f2a35600ac20f5a34506fc3d7ec6b91f67f1f0d4a195be2420e83d3a8b1466e5",
+        "quotation_mode": "table_value",
+        "locator": {
+          "kind": "table",
+          "table": "March quarter adjusted EBITA by segment",
+          "page": 9,
+          "row": "Alibaba International Digital Commerce Group",
+          "column": "2023 RMB, 2024 RMB and YoY change"
+        },
+        "quoted_text": "(2,171); (4,085); (88%)"
+      }
+    ],
+    "tags": ["international-commerce", "adjusted-ebita", "loss"],
+    "created_at": "2024-05-14T12:00:00Z"
+  },
+  {
+    "schema_version": "1.0.0",
+    "evidence_id": "baba-new-free-cash-flow",
+    "company_id": "alibaba-group",
+    "statement": "截至 2024-03-31 的季度，自由现金流为人民币 153.61 亿元，同比下降 52%。",
+    "content_class": "source_fact",
+    "attribution": "source_document",
+    "confidence": "high",
+    "verification_status": "verified",
+    "available_as_of": "2024-05-14T11:00:00Z",
+    "reported_for": "Quarter ended 2024-03-31",
+    "citations": [
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-new-free-cash-flow",
+        "source_document_id": "baba-results-2024-05-14",
+        "snapshot_sha256": "f2a35600ac20f5a34506fc3d7ec6b91f67f1f0d4a195be2420e83d3a8b1466e5",
+        "quotation_mode": "exact_quote",
+        "locator": {
+          "kind": "page",
+          "page": 17,
+          "section": "Net cash provided by operating activities and free cash flow"
+        },
+        "quoted_text": "RMB15,361 million (US$2,127 million), a decrease of 52%"
+      }
+    ],
+    "tags": ["free-cash-flow", "capex", "cloud"],
+    "created_at": "2024-05-14T12:00:00Z"
+  },
+  {
+    "schema_version": "1.0.0",
+    "evidence_id": "baba-new-free-cash-flow-explanation",
+    "company_id": "alibaba-group",
+    "statement": "管理层解释称，自由现金流同比下降主要反映资本开支增加（其中多数为阿里云基础设施投入），以及上年同期收到蚂蚁集团特别股息的比较基数。",
+    "content_class": "source_opinion",
+    "attribution": "management",
+    "confidence": "high",
+    "verification_status": "verified",
+    "available_as_of": "2024-05-14T11:00:00Z",
+    "reported_for": "Quarter ended 2024-03-31",
+    "citations": [
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-new-free-cash-flow-cloud-explanation",
+        "source_document_id": "baba-results-2024-05-14",
+        "snapshot_sha256": "f2a35600ac20f5a34506fc3d7ec6b91f67f1f0d4a195be2420e83d3a8b1466e5",
+        "quotation_mode": "exact_quote",
+        "locator": {
+          "kind": "page",
+          "page": 17,
+          "section": "Net cash provided by operating activities and free cash flow"
+        },
+        "quoted_text": "investments in Alibaba Cloud infrastructure"
+      },
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-new-free-cash-flow-comparator-explanation",
+        "source_document_id": "baba-results-2024-05-14",
+        "snapshot_sha256": "f2a35600ac20f5a34506fc3d7ec6b91f67f1f0d4a195be2420e83d3a8b1466e5",
+        "quotation_mode": "exact_quote",
+        "locator": {
+          "kind": "page",
+          "page": 17,
+          "section": "Net cash provided by operating activities and free cash flow"
+        },
+        "quoted_text": "special dividend of RMB10,519 million from Ant Group"
+      }
+    ],
+    "tags": ["free-cash-flow", "management-explanation", "capex", "cloud"],
+    "created_at": "2024-05-14T12:00:00Z"
+  },
+  {
+    "schema_version": "1.0.0",
+    "evidence_id": "baba-new-buyback",
+    "company_id": "alibaba-group",
+    "statement": "截至 2024-03-31 的财年，公司以 125 亿美元回购 12.49 亿股普通股；3 月季度在计入股权激励发行后，流通股净减少 2.6%。",
+    "content_class": "source_fact",
+    "attribution": "source_document",
+    "confidence": "high",
+    "verification_status": "verified",
+    "available_as_of": "2024-05-14T11:00:00Z",
+    "reported_for": "Fiscal year and quarter ended 2024-03-31",
+    "citations": [
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-new-buyback",
+        "source_document_id": "baba-results-2024-05-14",
+        "snapshot_sha256": "f2a35600ac20f5a34506fc3d7ec6b91f67f1f0d4a195be2420e83d3a8b1466e5",
+        "quotation_mode": "exact_quote",
+        "locator": {
+          "kind": "page",
+          "page": 4,
+          "section": "Share Repurchases"
+        },
+        "quoted_text": "repurchased a total of 1,249 million ordinary shares"
+      },
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-new-buyback-value",
+        "source_document_id": "baba-results-2024-05-14",
+        "snapshot_sha256": "f2a35600ac20f5a34506fc3d7ec6b91f67f1f0d4a195be2420e83d3a8b1466e5",
+        "quotation_mode": "exact_quote",
+        "locator": {
+          "kind": "page",
+          "page": 4,
+          "section": "Share Repurchases"
+        },
+        "quoted_text": "for a total of US$12.5 billion"
+      },
+      {
+        "schema_version": "1.0.0",
+        "citation_id": "cite-baba-new-buyback-net-reduction",
+        "source_document_id": "baba-results-2024-05-14",
+        "snapshot_sha256": "f2a35600ac20f5a34506fc3d7ec6b91f67f1f0d4a195be2420e83d3a8b1466e5",
+        "quotation_mode": "exact_quote",
+        "locator": {
+          "kind": "page",
+          "page": 4,
+          "section": "Share Repurchases"
+        },
+        "quoted_text": "a 2.6% net reduction in our outstanding shares"
+      }
+    ],
+    "tags": ["buyback", "share-count"],
+    "created_at": "2024-05-14T12:00:00Z"
+  }
+]

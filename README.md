@@ -10,6 +10,48 @@
 > [!IMPORTANT]
 > ThesisOS 目前处于早期设计与原型阶段。本文中 V1 及之后的内容是产品更新路径，不代表已经实现或承诺交付的功能。
 
+## 可运行的 V0 核心原型
+
+仓库已经包含一条命令行可运行的 V0 研究链：不可变
+`SourceDocument → Evidence → confirmed ThesisCard → pending ThesisDiff → UserReview → new ThesisVersion`，以及原始 PDF/Markdown/文本解析、精确引用核验、可插拔模型 adapter、版本历史、阿里巴巴真实历史回放和四类评测。
+
+需要 Python 3.10 或更高版本：
+
+```console
+python3 -m venv .venv
+./.venv/bin/python -m pip install .
+./.venv/bin/python -m unittest discover -s tests -v
+```
+
+Windows PowerShell 中将 `./.venv/bin/python` 替换为
+`.\.venv\Scripts\python.exe`。CI 同时运行 Linux 与 Windows 的最小/最新
+Python 版本。
+
+运行黄金回放和 README 对应的三套独立攻击评测：
+
+```console
+./.venv/bin/python -m thesisos eval-replay \
+  evals/historical-replay/alibaba-2024-q4/case.json
+
+./.venv/bin/python -m thesisos eval-suite \
+  evals/citation-accuracy/suite.json \
+  evals/assumption-mapping/suite.json \
+  evals/future-leakage/suite.json
+```
+
+本地研究流程从以下命令开始：
+
+```console
+./.venv/bin/python -m thesisos init ./thesisos_workspace
+./.venv/bin/python -m thesisos snapshot-info ./new-source.pdf
+./.venv/bin/python -m thesisos --workspace ./thesisos_workspace ingest-document source.json ./new-source.pdf
+./.venv/bin/python -m thesisos --workspace ./thesisos_workspace commit-thesis thesis-v1.json
+```
+
+随后使用 `extract-evidence` 调用用户提供的模型 adapter；人工核验输出并通过 `save-evidence` 明确标为 verified 后，`generate-diff` 才会接纳它。最后用 `review` 接受、修改、拒绝或暂缓更新。完整 argv/JSON 协议和 request metadata 见 [`docs/model-adapter-protocol.md`](docs/model-adapter-protocol.md)，工作区格式见 [`docs/workspace-format.md`](docs/workspace-format.md)，数据不变量见 [`docs/data-contracts.md`](docs/data-contracts.md)。所有命令输出机器可读 JSON；输入或评测失败返回退出码 2，意外运行时或 I/O 故障返回退出码 1。
+
+原型有意不内置特定模型供应商凭据或客户端。调用方通过无 shell 的 subprocess adapter 接入自己的模型；模型生成的 Evidence 永远是 `unreviewed`，不能自封为已验证事实。完整网页客户端、自动来源抓取和 README 中的真实用户价值指标仍未实现或验证。
+
 ---
 
 ## 一、ThesisOS 是什么
@@ -1164,14 +1206,16 @@ ThesisOS 更关心：
 
 # 当前开发重点
 
-## 二十五、下一阶段只做四件事
+## 二十五、本阶段聚焦的四件事
 
 1. 定义 Thesis Card 数据结构；
 2. 定义 Thesis Diff 标准输出；
 3. 完成一个真实历史案例的端到端回放；
 4. 建立引用、假设映射和未来信息泄漏评测。
 
-在这四件事完成前，不优先开发完整网页、客户端或复杂 Agent 团队。
+当前可运行原型已完成上述四项及本地人工审阅闭环；下一步先用更多真实
+公司、更多期材料和真实用户验证可靠性与十五分钟价值指标，不优先开发
+完整网页、客户端或复杂 Agent 团队。
 
 ---
 

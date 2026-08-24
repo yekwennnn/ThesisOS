@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0.0",
+  "user_review_id": "baba-review-2024-05-14",
+  "thesis_diff_id": "baba-diff-2024-05-14",
+  "company_id": "alibaba-group",
+  "base_thesis_id": "baba-core-thesis",
+  "base_version_id": "baba-thesis-v1-2024-02-07",
+  "decision": "accept",
+  "reviewer_id": "golden-fixture-curator",
+  "reviewed_at": "2024-05-15T00:00:00Z",
+  "comment": "接受这份历史回放的完整提案作为 golden fixture：它保留了正负证据、未生成交易建议，并明确要求继续验证货币化、外部云增长与国际单位经济性。此记录只用于可重复评测。"
+}

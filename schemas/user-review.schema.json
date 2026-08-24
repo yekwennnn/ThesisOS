@@ -1,0 +1,216 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thesisos.dev/schemas/user-review.schema.json",
+  "title": "ThesisOS User Review",
+  "description": "The human decision over a pending ThesisDiff patch. AI output alone cannot create this record.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "user_review_id",
+    "thesis_diff_id",
+    "company_id",
+    "base_thesis_id",
+    "base_version_id",
+    "decision",
+    "reviewer_id",
+    "reviewed_at"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "user_review_id": {
+      "$ref": "#/$defs/stableId"
+    },
+    "thesis_diff_id": {
+      "$ref": "#/$defs/stableId"
+    },
+    "company_id": {
+      "$ref": "#/$defs/stableId"
+    },
+    "base_thesis_id": {
+      "$ref": "#/$defs/stableId"
+    },
+    "base_version_id": {
+      "$ref": "#/$defs/stableId"
+    },
+    "decision": {
+      "type": "string",
+      "description": "Stable machine mapping of the five review choices in the README.",
+      "enum": [
+        "accept",
+        "accept_with_edits",
+        "reject",
+        "defer_insufficient",
+        "create_research_task"
+      ]
+    },
+    "reviewer_id": {
+      "$ref": "#/$defs/stableId"
+    },
+    "reviewed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "comment": {
+      "type": "string",
+      "maxLength": 10000
+    },
+    "reviewed_thesis": {
+      "description": "Required only when the user edits the proposed thesis before accepting it.",
+      "allOf": [
+        {
+          "$ref": "thesis-card.schema.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "version": {
+              "type": "object",
+              "properties": {
+                "supersedes": {
+                  "$ref": "#/$defs/stableId"
+                },
+                "user_confirmed": {
+                  "const": true
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "research_tasks": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/researchTask"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "decision": {
+            "const": "accept_with_edits"
+          }
+        },
+        "required": [
+          "decision"
+        ]
+      },
+      "then": {
+        "required": [
+          "reviewed_thesis"
+        ],
+        "not": {
+          "required": [
+            "research_tasks"
+          ]
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "decision": {
+            "const": "create_research_task"
+          }
+        },
+        "required": [
+          "decision"
+        ]
+      },
+      "then": {
+        "required": [
+          "research_tasks"
+        ],
+        "not": {
+          "required": [
+            "reviewed_thesis"
+          ]
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "decision": {
+            "enum": [
+              "accept",
+              "reject",
+              "defer_insufficient"
+            ]
+          }
+        },
+        "required": [
+          "decision"
+        ]
+      },
+      "then": {
+        "not": {
+          "anyOf": [
+            {
+              "required": [
+                "reviewed_thesis"
+              ]
+            },
+            {
+              "required": [
+                "research_tasks"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "stableId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^(?!(?:[Cc][Oo][Nn]|[Pp][Rr][Nn]|[Aa][Uu][Xx]|[Nn][Uu][Ll]|[Cc][Oo][Mm][1-9]|[Ll][Pp][Tt][1-9])(?:\\.|$))[A-Za-z0-9](?:[A-Za-z0-9._-]*[A-Za-z0-9_-])?$"
+    },
+    "researchTask": {
+      "type": "object",
+      "required": [
+        "research_task_id",
+        "question",
+        "why_it_matters",
+        "linked_assumption_ids",
+        "status"
+      ],
+      "properties": {
+        "research_task_id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "question": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "why_it_matters": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "linked_assumption_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/stableId"
+          }
+        },
+        "status": {
+          "const": "open"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

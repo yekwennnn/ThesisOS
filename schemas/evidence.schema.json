@@ -1,0 +1,199 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thesisos.dev/schemas/evidence.schema.json",
+  "title": "ThesisOS Evidence",
+  "description": "A provenance-classified statement grounded in one or more exact citations.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "evidence_id",
+    "company_id",
+    "statement",
+    "content_class",
+    "attribution",
+    "confidence",
+    "verification_status",
+    "available_as_of",
+    "citations",
+    "created_at"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "evidence_id": {
+      "$ref": "#/$defs/stableId"
+    },
+    "company_id": {
+      "$ref": "#/$defs/stableId"
+    },
+    "statement": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 10000
+    },
+    "content_class": {
+      "type": "string",
+      "description": "Stable machine mapping of the README's four content classes.",
+      "enum": [
+        "source_fact",
+        "source_opinion",
+        "user_judgment",
+        "ai_inference"
+      ]
+    },
+    "attribution": {
+      "type": "string",
+      "enum": [
+        "source_document",
+        "management",
+        "third_party_author",
+        "user",
+        "ai"
+      ]
+    },
+    "confidence": {
+      "type": "string",
+      "enum": [
+        "high",
+        "medium",
+        "low",
+        "insufficient_evidence"
+      ]
+    },
+    "verification_status": {
+      "type": "string",
+      "enum": [
+        "unreviewed",
+        "verified",
+        "disputed",
+        "rejected"
+      ]
+    },
+    "available_as_of": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The earliest time this evidence may be used in a historical replay."
+    },
+    "reported_for": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "citations": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "citation.schema.json"
+      }
+    },
+    "tags": {
+      "type": "array",
+      "maxItems": 50,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "content_class": {
+            "const": "user_judgment"
+          }
+        },
+        "required": [
+          "content_class"
+        ]
+      },
+      "then": {
+        "properties": {
+          "attribution": {
+            "const": "user"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "content_class": {
+            "const": "ai_inference"
+          }
+        },
+        "required": [
+          "content_class"
+        ]
+      },
+      "then": {
+        "properties": {
+          "attribution": {
+            "const": "ai"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "content_class": {
+            "const": "source_fact"
+          }
+        },
+        "required": [
+          "content_class"
+        ]
+      },
+      "then": {
+        "properties": {
+          "attribution": {
+            "enum": [
+              "source_document",
+              "management"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "content_class": {
+            "const": "source_opinion"
+          }
+        },
+        "required": [
+          "content_class"
+        ]
+      },
+      "then": {
+        "properties": {
+          "attribution": {
+            "enum": [
+              "management",
+              "third_party_author"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "stableId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^(?!(?:[Cc][Oo][Nn]|[Pp][Rr][Nn]|[Aa][Uu][Xx]|[Nn][Uu][Ll]|[Cc][Oo][Mm][1-9]|[Ll][Pp][Tt][1-9])(?:\\.|$))[A-Za-z0-9](?:[A-Za-z0-9._-]*[A-Za-z0-9_-])?$"
+    }
+  }
+}

@@ -1,0 +1,571 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thesisos.dev/schemas/thesis-diff.schema.json",
+  "title": "ThesisOS Thesis Diff",
+  "description": "A citation-linked, review-pending assessment of how new material affects an existing thesis version.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "thesis_diff_id",
+    "company_id",
+    "base_thesis_id",
+    "base_version_id",
+    "source_document_ids",
+    "material_published_on",
+    "analysis_cutoff_at",
+    "generated_at",
+    "overall_assessment",
+    "overall_rationale",
+    "assumption_changes",
+    "management_statement_action",
+    "targeted_counter_case",
+    "follow_up_questions",
+    "proposed_patch"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "thesis_diff_id": {
+      "$ref": "#/$defs/stableId"
+    },
+    "company_id": {
+      "$ref": "#/$defs/stableId"
+    },
+    "base_thesis_id": {
+      "$ref": "#/$defs/stableId"
+    },
+    "base_version_id": {
+      "$ref": "#/$defs/stableId"
+    },
+    "source_document_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/stableId"
+      }
+    },
+    "material_published_on": {
+      "type": "string",
+      "format": "date"
+    },
+    "analysis_cutoff_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "overall_assessment": {
+      "$ref": "#/$defs/impact"
+    },
+    "overall_rationale": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 5000
+    },
+    "assumption_changes": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 7,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/assumptionChange"
+      }
+    },
+    "management_statement_action": {
+      "$ref": "#/$defs/managementStatementAction"
+    },
+    "targeted_counter_case": {
+      "$ref": "#/$defs/targetedCounterCase"
+    },
+    "follow_up_questions": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 3,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/followUpQuestion"
+      }
+    },
+    "proposed_patch": {
+      "$ref": "#/$defs/proposedPatch"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "stableId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^(?!(?:[Cc][Oo][Nn]|[Pp][Rr][Nn]|[Aa][Uu][Xx]|[Nn][Uu][Ll]|[Cc][Oo][Mm][1-9]|[Ll][Pp][Tt][1-9])(?:\\.|$))[A-Za-z0-9](?:[A-Za-z0-9._-]*[A-Za-z0-9_-])?$"
+    },
+    "impact": {
+      "type": "string",
+      "description": "Stable machine mapping of the seven README assessment labels.",
+      "enum": [
+        "clearly_strengthened",
+        "slightly_strengthened",
+        "unchanged",
+        "slightly_weakened",
+        "clearly_weakened",
+        "invalidated",
+        "insufficient_evidence"
+      ]
+    },
+    "confidence": {
+      "type": "string",
+      "enum": [
+        "high",
+        "medium",
+        "low"
+      ]
+    },
+    "assumptionChange": {
+      "type": "object",
+      "required": [
+        "assumption_id",
+        "prior_statement",
+        "impact",
+        "confidence",
+        "evidence_ids",
+        "rationale",
+        "alternative_explanation"
+      ],
+      "properties": {
+        "assumption_id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "prior_statement": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "impact": {
+          "$ref": "#/$defs/impact"
+        },
+        "confidence": {
+          "$ref": "#/$defs/confidence"
+        },
+        "evidence_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/stableId"
+          }
+        },
+        "triggered_falsification_condition_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/stableId"
+          }
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 5000
+        },
+        "alternative_explanation": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 5000
+        }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "impact": {
+                "not": {
+                  "const": "insufficient_evidence"
+                }
+              }
+            },
+            "required": [
+              "impact"
+            ]
+          },
+          "then": {
+            "properties": {
+              "evidence_ids": {
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "impact": {
+                "const": "invalidated"
+              }
+            },
+            "required": [
+              "impact"
+            ]
+          },
+          "then": {
+            "required": [
+              "triggered_falsification_condition_ids"
+            ]
+          },
+          "else": {
+            "not": {
+              "required": [
+                "triggered_falsification_condition_ids"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "managementStatementAction": {
+      "type": "object",
+      "required": [
+        "assessment",
+        "summary",
+        "comparisons"
+      ],
+      "properties": {
+        "assessment": {
+          "type": "string",
+          "enum": [
+            "aligned",
+            "partially_aligned",
+            "misaligned",
+            "insufficient_evidence",
+            "not_applicable"
+          ]
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 5000
+        },
+        "comparisons": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/managementComparison"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "assessment": {
+                "enum": [
+                  "aligned",
+                  "partially_aligned",
+                  "misaligned"
+                ]
+              }
+            },
+            "required": [
+              "assessment"
+            ]
+          },
+          "then": {
+            "properties": {
+              "comparisons": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "managementComparison": {
+      "type": "object",
+      "required": [
+        "comparison_id",
+        "past_statement",
+        "past_evidence_ids",
+        "current_action_or_result",
+        "current_evidence_ids",
+        "assessment",
+        "unresolved_part"
+      ],
+      "properties": {
+        "comparison_id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "past_statement": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 3000
+        },
+        "past_evidence_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/stableId"
+          }
+        },
+        "current_action_or_result": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 3000
+        },
+        "current_evidence_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/stableId"
+          }
+        },
+        "assessment": {
+          "type": "string",
+          "enum": [
+            "aligned",
+            "partially_aligned",
+            "misaligned",
+            "insufficient_evidence"
+          ]
+        },
+        "unresolved_part": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        }
+      },
+      "additionalProperties": false
+    },
+    "targetedCounterCase": {
+      "type": "object",
+      "required": [
+        "argument",
+        "attacked_assumption_ids",
+        "evidence_ids",
+        "why_plausible"
+      ],
+      "properties": {
+        "argument": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 5000
+        },
+        "attacked_assumption_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/stableId"
+          }
+        },
+        "evidence_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/stableId"
+          }
+        },
+        "why_plausible": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 3000
+        }
+      },
+      "additionalProperties": false
+    },
+    "followUpQuestion": {
+      "type": "object",
+      "required": [
+        "question_id",
+        "question",
+        "linked_assumption_ids",
+        "information_value",
+        "evidence_needed"
+      ],
+      "properties": {
+        "question_id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "question": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "linked_assumption_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/stableId"
+          }
+        },
+        "information_value": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "evidence_needed": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        }
+      },
+      "additionalProperties": false
+    },
+    "proposedPatch": {
+      "type": "object",
+      "required": [
+        "patch_status",
+        "base_thesis_id",
+        "base_version_id",
+        "change_items",
+        "proposed_thesis"
+      ],
+      "properties": {
+        "patch_status": {
+          "const": "pending_user_review"
+        },
+        "base_thesis_id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "base_version_id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "change_items": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/changeItem"
+          }
+        },
+        "proposed_thesis": {
+          "allOf": [
+            {
+              "$ref": "thesis-card.schema.json"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "version": {
+                  "type": "object",
+                  "properties": {
+                    "supersedes": {
+                      "$ref": "#/$defs/stableId"
+                    },
+                    "user_confirmed": {
+                      "const": false
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "changeItem": {
+      "type": "object",
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "target_type": {
+                "enum": [
+                  "one_sentence_thesis",
+                  "strongest_counter_case",
+                  "valuation_anchor"
+                ]
+              }
+            },
+            "required": ["target_type"]
+          },
+          "then": {
+            "properties": {
+              "target_id": {
+                "type": "null"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "target_id": {
+                "$ref": "#/$defs/stableId"
+              }
+            }
+          }
+        }
+      ],
+      "required": [
+        "change_id",
+        "operation",
+        "target_type",
+        "target_id",
+        "summary",
+        "rationale",
+        "evidence_ids"
+      ],
+      "properties": {
+        "change_id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "operation": {
+          "type": "string",
+          "enum": [
+            "keep",
+            "modify",
+            "add",
+            "remove",
+            "insufficient_evidence"
+          ]
+        },
+        "target_type": {
+          "type": "string",
+          "enum": [
+            "one_sentence_thesis",
+            "assumption",
+            "key_indicator",
+            "falsification_condition",
+            "strongest_counter_case",
+            "valuation_anchor",
+            "unknown_question"
+          ]
+        },
+        "target_id": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/stableId"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 3000
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 3000
+        },
+        "evidence_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/stableId"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

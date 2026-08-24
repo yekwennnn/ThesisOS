@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "source_document_id": "baba-results-2024-05-14",
+  "company_id": "alibaba-group",
+  "title": "Alibaba Group Announces March Quarter and Full Fiscal Year 2024 Results",
+  "document_type": "earnings_release",
+  "media_type": "pdf",
+  "source_class": "primary",
+  "issuer_or_author": "Alibaba Group Holding Limited",
+  "language": "en",
+  "published_on": "2024-05-14",
+  "publicly_available_at": "2024-05-14T11:00:00Z",
+  "reporting_period": {
+    "kind": "fiscal_year",
+    "label": "Fiscal year 2024, including March quarter",
+    "start_on": "2023-04-01",
+    "end_on": "2024-03-31"
+  },
+  "original_uri": "https://data.alibabagroup.com/ecms-files/1532295521/afdeaf9e-5dd7-4a18-8ff0-968a6807f09d/Alibaba%20Group%20Announces%20March%20Quarter%202024%20and%20Fiscal%20Year%202024%20Results.pdf",
+  "page_count": 40,
+  "snapshot": {
+    "sha256": "f2a35600ac20f5a34506fc3d7ec6b91f67f1f0d4a195be2420e83d3a8b1466e5",
+    "storage_uri": "urn:sha256:f2a35600ac20f5a34506fc3d7ec6b91f67f1f0d4a195be2420e83d3a8b1466e5",
+    "byte_size": 845827
+  },
+  "ingested_at": "2024-05-14T12:00:00Z"
+}

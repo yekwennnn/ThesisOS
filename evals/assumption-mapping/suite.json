@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0.0",
+  "suite_id": "assumption-mapping",
+  "description": "Reject a ThesisDiff when evidence is assigned to the wrong assumption or an assumption is omitted from the assessment.",
+  "golden_case": "../historical-replay/alibaba-2024-q4/case.json",
+  "mutations": [
+    {
+      "mutation_id": "swap-commerce-and-international-evidence",
+      "operation": "swap",
+      "target": {
+        "artifact": "thesis_diff"
+      },
+      "pointer": "/assumption_changes/0/evidence_ids",
+      "other_target": {
+        "artifact": "thesis_diff"
+      },
+      "other_pointer": "/assumption_changes/2/evidence_ids",
+      "expected_failed_checks": [
+        "golden_assumption_evidence_mapping"
+      ]
+    },
+    {
+      "mutation_id": "remove-cloud-assumption-assessment",
+      "operation": "delete",
+      "target": {
+        "artifact": "thesis_diff"
+      },
+      "pointer": "/assumption_changes/1",
+      "expected_failed_checks": [
+        "assumption_mapping_coverage"
+      ]
+    }
+  ]
+}

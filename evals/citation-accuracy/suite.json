@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0.0",
+  "suite_id": "citation-accuracy",
+  "description": "Reject citations whose immutable snapshot or PDF locator cannot match the cited source document.",
+  "golden_case": "../historical-replay/alibaba-2024-q4/case.json",
+  "mutations": [
+    {
+      "mutation_id": "citation-snapshot-mismatch",
+      "operation": "set",
+      "target": {
+        "artifact": "evidence",
+        "match": {
+          "evidence_id": "baba-new-cloud"
+        }
+      },
+      "pointer": "/citations/0/snapshot_sha256",
+      "value": "0000000000000000000000000000000000000000000000000000000000000000",
+      "expected_failed_checks": [
+        "citation_snapshot_and_locator_integrity"
+      ]
+    },
+    {
+      "mutation_id": "citation-page-out-of-range",
+      "operation": "set",
+      "target": {
+        "artifact": "evidence",
+        "match": {
+          "evidence_id": "baba-base-revenue"
+        }
+      },
+      "pointer": "/citations/0/locator/page",
+      "value": 999,
+      "expected_failed_checks": [
+        "citation_snapshot_and_locator_integrity"
+      ]
+    },
+    {
+      "mutation_id": "citation-forged-quoted-text",
+      "operation": "set",
+      "target": {
+        "artifact": "evidence",
+        "match": {
+          "evidence_id": "baba-new-cloud"
+        }
+      },
+      "pointer": "/citations/0/quoted_text",
+      "value": "This sentence is not present in the curator-verified source snapshot.",
+      "expected_failed_checks": [
+        "curator_citation_text_anchor"
+      ]
+    }
+  ]
+}

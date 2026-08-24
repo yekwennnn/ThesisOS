@@ -1,0 +1,131 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "alibaba-2024-q4-thesisdiff-replay",
+  "base_analysis_cutoff_at": "2024-02-07T12:00:00Z",
+  "analysis_cutoff_at": "2024-05-15T00:00:00Z",
+  "base_source_document_ids": [
+    "baba-results-2024-02-07"
+  ],
+  "base_evidence_ids": [
+    "baba-base-revenue",
+    "baba-base-commerce",
+    "baba-base-cloud",
+    "baba-base-cloud-quality-explanation",
+    "baba-base-free-cash-flow",
+    "baba-base-free-cash-flow-explanation",
+    "baba-base-buyback",
+    "baba-base-management-investment-plan"
+  ],
+  "paths": {
+    "base_thesis": "../../../examples/alibaba-2024-replay/thesis-v1-confirmed.json",
+    "documents": [
+      "../../../examples/alibaba-2024-replay/source-base-2024-02-07.json",
+      "../../../examples/alibaba-2024-replay/source-new-2024-05-14.json"
+    ],
+    "evidence": [
+      "../../../examples/alibaba-2024-replay/evidence-base.json",
+      "../../../examples/alibaba-2024-replay/evidence-new.json"
+    ],
+    "thesis_diff": "../../../examples/alibaba-2024-replay/thesis-diff-pending.json",
+    "user_review": "../../../examples/alibaba-2024-replay/user-review.json",
+    "accepted_thesis": "../../../examples/alibaba-2024-replay/thesis-v2-confirmed.json"
+  },
+  "critical_financial_evidence_ids": [
+    "baba-base-revenue",
+    "baba-base-commerce",
+    "baba-base-cloud",
+    "baba-base-free-cash-flow",
+    "baba-base-buyback",
+    "baba-new-commerce-revenue",
+    "baba-new-commerce-ebita",
+    "baba-new-cloud",
+    "baba-new-aidc-growth",
+    "baba-new-aidc-loss",
+    "baba-new-free-cash-flow",
+    "baba-new-buyback"
+  ],
+  "expected_assumption_evidence_ids": {
+    "baba-a1-commerce": [
+      "baba-new-commerce-revenue",
+      "baba-new-commerce-engagement",
+      "baba-new-commerce-take-rate",
+      "baba-new-commerce-take-rate-explanation",
+      "baba-new-commerce-ebita",
+      "baba-new-commerce-ebita-explanation"
+    ],
+    "baba-a2-cloud": [
+      "baba-new-cloud"
+    ],
+    "baba-a3-international": [
+      "baba-new-aidc-growth",
+      "baba-new-aidc-loss"
+    ],
+    "baba-a4-capital-allocation": [
+      "baba-new-free-cash-flow",
+      "baba-new-free-cash-flow-explanation",
+      "baba-new-buyback"
+    ]
+  },
+  "expected_citation_text_sha256": {
+    "cite-baba-base-buyback": "cd90866565b82daca3849f1caed87bf3c26aaf420db055eee863b3f9cd2e9491",
+    "cite-baba-base-buyback-authorization": "d3af376fae0dd1fa2f6e1ba03bbcba1d780afcf87bd6d1dce8fa82a5afdc613f",
+    "cite-baba-base-cloud": "243a57e658c8d8dcc8a93160770ebadae395e7df9f88de393035cf9b6d506205",
+    "cite-baba-base-cloud-contract-explanation": "753ed6e471f8394aacd7aad8dfcfc2d60690af2efd2eb1fe257fcd0856256900",
+    "cite-baba-base-cloud-profit-explanation": "3b95eb450101a855958e76e5b6b13a79f580491f575234249fb3daf68207290d",
+    "cite-baba-base-commerce-engagement": "bfbb79c5056d80bee232f4c21e79f6554415433bf74b14a30535c4564c40ffec",
+    "cite-baba-base-commerce-orders": "7709b126cf190a467d462fc1317538638a283bfc78734ba9851ab10aa412a969",
+    "cite-baba-base-commerce-revenue": "4c536d1b3b952bb1c112e264ae7d256973eac5dfbb2b3e46e915114ffbf834fc",
+    "cite-baba-base-free-cash-flow": "8208d4d02c020de19260122918cf554c6f0466374627b88be4afc785aec63f3c",
+    "cite-baba-base-free-cash-flow-explanation": "e5a1d63b28737d1eb9ae1f81451e9bd29bc497398a817afd6844aa5d46cea7c7",
+    "cite-baba-base-free-cash-flow-one-offs": "a8800b78317d5d8015bad72eb53ff3b159318a65f0633cea82519005a6bd8865",
+    "cite-baba-base-management-investment-plan": "70683efd2680dc2f181f4f9138103d7a73ea30d15814266a5e942e9f5b03c5bd",
+    "cite-baba-base-management-public-cloud-plan": "e0550095dc23c9a25ef89c4cb553f532da4aee4f911029bfb3f6f21e576840de",
+    "cite-baba-base-revenue": "9ce97228e1520522b0405a426d7bb460f9a01351a561c64475ac14b507a4a638",
+    "cite-baba-new-aidc-growth": "df6f0edd7ea14959f8db6d3d5abb0b4d9e128f036d0b5d1726e54f89da2ceb69",
+    "cite-baba-new-aidc-loss": "995b1c173fed20ce3b1e447f41c1acac9a12d9e6429f593e98a86f373b4e7797",
+    "cite-baba-new-aidc-orders": "9ad0100adac219506951457bd92d2b6f716652e969c898399782d33ed759ef51",
+    "cite-baba-new-buyback": "372c64e855466cea5eac77641f51e6ff140b12ddf3f3888502553899c8178596",
+    "cite-baba-new-buyback-net-reduction": "3296879b43a1b372fd71fdcb476236acca4db634b8075369e134ce0850f07862",
+    "cite-baba-new-buyback-value": "19e904ad0e2f0840ed25e56e939b848f73fc49215c9bdcb79d1e7953370896e7",
+    "cite-baba-new-cloud-ebita": "a292ee618cb8a701d1c0cb94c3b490003f854cf0d7a1312705b397cc0b626312",
+    "cite-baba-new-cloud-revenue": "f8cf8a3a49b82f573c04ad79ba51eca2a8dcd911b4566fd1e8042b220e41bc66",
+    "cite-baba-new-commerce-cmr": "c23aef28839abbe075187a0856bf865ee7bd017471f52bbeffda563d0f8132ee",
+    "cite-baba-new-commerce-cmr-offset": "cadb1ba3e45cc3dcfedd2515b6dcc31b2d3a0be88a08b23bb9159aa7a915c0dd",
+    "cite-baba-new-commerce-ebita": "d4bf222e963144e25a52b037fb968ef567495b5eaefc892b10910c17b5ce7c61",
+    "cite-baba-new-commerce-ebita-explanation": "b9f0fea45caa5ca84ab038dfdaf2b1fb6cf79701f06dfbe33a91277b402a72b2",
+    "cite-baba-new-commerce-engagement": "f9cdb64846493587c62d3c1a2ac07ae01072b4e4399473de5dc5895311c3e092",
+    "cite-baba-new-commerce-gmv-orders": "5e2300f41f5a53e0a917f7ce7ab1dba826a5803c0d29135d8a7c97c85710fe93",
+    "cite-baba-new-commerce-low-monetization-models": "9d31777dffad9bc4d44db0b2a57f1dc265694b61097e0c0f7062a79feee06b2e",
+    "cite-baba-new-commerce-purchasers-frequency": "5bc60f261cccca60f2033041bd3196144e08708f7d73e3c86144295a4fda004a",
+    "cite-baba-new-commerce-revenue": "22c25ef4fc0842e376656d9eb71aaae9bc882c2f10475290ec532c5b3776d194",
+    "cite-baba-new-commerce-take-rate": "353bbcc6b5972293c61305b1fbcb995e4cd6ce8681446fd6362e21c93eb5b349",
+    "cite-baba-new-commerce-take-rate-explanation": "53219da4e6b12053386cad5dfb85b95fc8f4d784dbdfe01a245d690a347a5b4d",
+    "cite-baba-new-commerce-technology-infrastructure": "7193cee913eb408768790d060471fb476e4b6269a3119b82d21a339eb10786ef",
+    "cite-baba-new-core-public-cloud-growth": "078743ea1319a0c502d222659073cebd53faef95aa05230d7f6ada7e262304ba",
+    "cite-baba-new-free-cash-flow": "204d88d0f8a23fafa59472917084dd9bccd7c2af18188c26e7a7430116b9664c",
+    "cite-baba-new-free-cash-flow-cloud-explanation": "f984e7e834af6674670f4ac6e157b90d8a1ecaf1154c3417aa0713c476461b4e",
+    "cite-baba-new-free-cash-flow-comparator-explanation": "1e24f2e69e87084064c4d54272ba1ef209bb5a0c5dd4a57242345aba08e77f92"
+  },
+  "key_fact_evidence_ids": [
+    "baba-base-revenue",
+    "baba-base-commerce",
+    "baba-base-cloud",
+    "baba-base-cloud-quality-explanation",
+    "baba-base-free-cash-flow",
+    "baba-base-free-cash-flow-explanation",
+    "baba-base-buyback",
+    "baba-base-management-investment-plan",
+    "baba-new-commerce-revenue",
+    "baba-new-commerce-engagement",
+    "baba-new-commerce-take-rate",
+    "baba-new-commerce-take-rate-explanation",
+    "baba-new-commerce-ebita",
+    "baba-new-commerce-ebita-explanation",
+    "baba-new-cloud",
+    "baba-new-aidc-growth",
+    "baba-new-aidc-loss",
+    "baba-new-free-cash-flow",
+    "baba-new-free-cash-flow-explanation",
+    "baba-new-buyback"
+  ]
+}

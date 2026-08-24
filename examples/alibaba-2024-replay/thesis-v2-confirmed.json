@@ -1,0 +1,139 @@
+{
+  "schema_version": "1.0.0",
+  "thesis_id": "baba-core-thesis",
+  "company": {
+    "company_id": "alibaba-group",
+    "name": "Alibaba Group Holding Limited",
+    "ticker": "9988",
+    "market": "XHKG",
+    "research_status": "research"
+  },
+  "one_sentence_thesis": "用户确认的更新判断：淘天用户参与度与云业务盈利改善对核心业务质量构成小幅正面验证，但淘天货币化率、AIDC 亏损和自由现金流仍要求后续证据，尚不足以改变整体审慎判断。",
+  "assumptions": [
+    {
+      "assumption_id": "baba-a1-commerce",
+      "statement": "淘天用户参与度已出现改善，后续关键是双位数 GMV 与订单增长能否在整体货币化率下降的情况下持续转化为客户管理收入，并避免分部利润长期承压。",
+      "indicator_ids": ["baba-i1-commerce-engagement", "baba-i2-commerce-economics"],
+      "falsification_condition_ids": ["baba-f1-commerce-no-conversion"]
+    },
+    {
+      "assumption_id": "baba-a2-cloud",
+      "statement": "云智能减少低毛利项目制收入、聚焦公共云与 AI 的转型已改善产品结构和盈利，下一步仍需外部客户收入恢复增长来验证其可持续性。",
+      "indicator_ids": ["baba-i3-cloud-quality"],
+      "falsification_condition_ids": ["baba-f2-cloud-no-quality-growth"]
+    },
+    {
+      "assumption_id": "baba-a3-international",
+      "statement": "AIDC 订单与收入保持高增长，但本期调整后 EBITA 亏损明显扩大；规模效应尚未成立，必须以单位经济性和后续亏损收窄验证。",
+      "indicator_ids": ["baba-i4-aidc-scale-and-loss"],
+      "falsification_condition_ids": ["baba-f3-aidc-loss-divergence"]
+    },
+    {
+      "assumption_id": "baba-a4-capital-allocation",
+      "statement": "回购继续带来流通股净减少，但阿里云基础设施投入令季度自由现金流承压；资本配置能力仍在，持续性取决于核心投入回报和正常化现金流。",
+      "indicator_ids": ["baba-i5-cash-and-share-count"],
+      "falsification_condition_ids": ["baba-f4-cash-allocation-strain"]
+    }
+  ],
+  "key_indicators": [
+    {
+      "indicator_id": "baba-i1-commerce-engagement",
+      "name": "淘天用户参与度",
+      "why_it_matters": "购买人数、订单、购买频次和 88VIP 会员变化检验用户优先策略是否形成可持续使用行为。",
+      "unit_or_definition": "同比增速及会员人数",
+      "linked_assumption_ids": ["baba-a1-commerce"]
+    },
+    {
+      "indicator_id": "baba-i2-commerce-economics",
+      "name": "淘天变现与分部经济性",
+      "why_it_matters": "客户管理收入、整体货币化率和调整后 EBITA 共同检验用户增长能否转化为经济价值。",
+      "unit_or_definition": "同比增速、货币化率和人民币调整后 EBITA",
+      "linked_assumption_ids": ["baba-a1-commerce"]
+    },
+    {
+      "indicator_id": "baba-i3-cloud-quality",
+      "name": "公共云增长与云调整后 EBITA",
+      "why_it_matters": "区分低毛利项目退出造成的表面低增速与公共云、AI 产品驱动的高质量增长。",
+      "unit_or_definition": "收入同比增速、产品结构和人民币调整后 EBITA",
+      "linked_assumption_ids": ["baba-a2-cloud"]
+    },
+    {
+      "indicator_id": "baba-i4-aidc-scale-and-loss",
+      "name": "AIDC 订单、收入与亏损",
+      "why_it_matters": "只有订单与收入增长同时带来亏损收窄，规模化假设才得到验证。",
+      "unit_or_definition": "同比增速和人民币调整后 EBITA",
+      "linked_assumption_ids": ["baba-a3-international"]
+    },
+    {
+      "indicator_id": "baba-i5-cash-and-share-count",
+      "name": "自由现金流与净股数变化",
+      "why_it_matters": "检验资本开支和回购是否由持续现金能力支撑，并真正降低稀释后的股数。",
+      "unit_or_definition": "人民币自由现金流、资本开支及稀释后净股数变化",
+      "linked_assumption_ids": ["baba-a4-capital-allocation"]
+    }
+  ],
+  "falsification_conditions": [
+    {
+      "condition_id": "baba-f1-commerce-no-conversion",
+      "statement": "若连续两个披露期内用户与订单改善仍未带动客户管理收入，且货币化率与淘天调整后 EBITA 同时持续恶化，则该假设被显著削弱。",
+      "linked_assumption_ids": ["baba-a1-commerce"]
+    },
+    {
+      "condition_id": "baba-f2-cloud-no-quality-growth",
+      "statement": "若退出低毛利项目后公共云与 AI 产品收入仍不能增长，且盈利改善主要来自不可持续的费用压缩，则该假设失效。",
+      "linked_assumption_ids": ["baba-a2-cloud"]
+    },
+    {
+      "condition_id": "baba-f3-aidc-loss-divergence",
+      "statement": "若 AIDC 订单保持高增长但调整后 EBITA 亏损连续两个披露期明显扩大且无单位经济性改善证据，则规模效应假设失效。",
+      "linked_assumption_ids": ["baba-a3-international"]
+    },
+    {
+      "condition_id": "baba-f4-cash-allocation-strain",
+      "statement": "若核心投入使自由现金流长期不足且回购无法在股权激励后减少净股数，或需要显著增加财务风险才能维持，则资本配置假设失效。",
+      "linked_assumption_ids": ["baba-a4-capital-allocation"]
+    }
+  ],
+  "strongest_counter_case": {
+    "statement": "本期的核心改善可能是高投入换取的增长而非可持续回报：淘天 GMV 增长伴随货币化率下降和分部 EBITA 下滑，AIDC 高增长伴随亏损扩大，云基础设施投入又显著压低自由现金流。",
+    "attacked_assumption_ids": ["baba-a1-commerce", "baba-a2-cloud", "baba-a3-international", "baba-a4-capital-allocation"],
+    "basis": "同一披露期同时出现淘天调整后 EBITA 同比下降 1%、整体货币化率下降、AIDC 调整后 EBITA 亏损扩大和自由现金流同比下降 52%，因此不能把用户或收入增长自动等同于商业质量改善。",
+    "evidence_ids": [
+      "baba-new-commerce-take-rate",
+      "baba-new-commerce-ebita",
+      "baba-new-aidc-loss",
+      "baba-new-free-cash-flow",
+      "baba-new-free-cash-flow-explanation"
+    ]
+  },
+  "valuation_anchor": {
+    "status": "insufficient_evidence",
+    "insufficiency_reason": "该历史回放只使用两份官方业绩公告，未纳入截止日市场价格、完整净现金调整和经用户确认的估值方法，因此不生成估值区间。"
+  },
+  "unknown_questions": [
+    {
+      "question_id": "baba-uq1-commerce-conversion",
+      "question": "在 GMV 增量偏向淘宝商家及低货币化新模式后，客户管理收入增长能否连续两个季度快于 GMV 以证明货币化率企稳？",
+      "linked_assumption_ids": ["baba-a1-commerce"]
+    },
+    {
+      "question_id": "baba-uq2-cloud-external",
+      "question": "剔除阿里并表子公司后，核心公共云和 AI 收入何时足以使外部客户收入恢复正增长，同时维持调整后 EBITA 改善？",
+      "linked_assumption_ids": ["baba-a2-cloud"]
+    },
+    {
+      "question_id": "baba-uq3-aidc-unit-economics",
+      "question": "AIDC 本期新增投入中有多少属于一次性市场扩张，Choice 的每单履约亏损何时开始随规模下降？",
+      "linked_assumption_ids": ["baba-a3-international"]
+    }
+  ],
+  "tags": ["historical-replay", "alibaba", "user-confirmed"],
+  "version": {
+    "as_of_date": "2024-05-15",
+    "version_id": "baba-thesis-v2-2024-05-15",
+    "created_at": "2024-05-14T18:00:00Z",
+    "updated_at": "2024-05-15T00:00:00Z",
+    "supersedes": "baba-thesis-v1-2024-02-07",
+    "user_confirmed": true
+  }
+}
