@@ -85,10 +85,11 @@ AI 不能把自己的输出标为已验证 Evidence，也不能静默晋升或�
 - 最新 wheel 普通安装后、不设置 `PYTHONPATH` 的同一套测试：171/171 通过。
 - 从仓库外 cwd 加载包内资源：6/6 Schema，ThesisDiff prompt contract `0.1.2`。
 - 最新工作树 wheel：`thesisos-0.1.0-py3-none-any.whl`，SHA-256 `868e5c102ebf40d799a0a70dc4b6fc1446bd220072e17b97ae02f9743cffea92`。
+- 功能提交 `9a533e3` 的干净 Git archive：171/171 通过；从该 archive 构建的 wheel SHA-256 为 `441b14eefdec764d202340623f8feb7eedcaf410b771f996861bc88a58dd510e`，仓库外资源 smoke test 通过。
 - Alibaba replay：18/18 检查通过。
 - adversarial suites：3/3 suite、7/7 mutation 通过。
 - `compileall`、`git diff --check`、冲突标记扫描通过。
-- wheel、sdist、由 sdist 重建 wheel、普通安装、`pip --target` 安装和仓库外资源加载均已通过；提交后还会从 Git HEAD archive 再做一次最终确认。
+- wheel、sdist、由 sdist 重建 wheel、普通安装、`pip --target` 安装、仓库外资源加载和 Git archive 重建均已通过。
 
 ## 尚未完成 / 已知限制
 
@@ -102,7 +103,7 @@ AI 不能把自己的输出标为已验证 Evidence，也不能静默晋升或�
 - README 的“15 分钟完成判断”、真实用户价值、留存和付费意愿尚未经过用户实验验证。
 - 尚未选择 LICENSE，`pyproject.toml` 也没有 license metadata；在用户决定许可证前，不应把当前包视为可公开分发版本。
 - CI workflow 已配置并完成本地等价检查，但尚未在本轮提交后的 GitHub Actions 上实际运行。
-- 本机 `gh auth status` 显示现有 GitHub 凭据失效；本轮会在提交后尝试 `git push`，若认证仍失败，需要用户重新登录后同步。
+- 本机 `gh auth status` 显示现有 GitHub 凭据失效；同时，直接推送默认 `main` 属于未单独授权的外部发布，安全审批门禁已拒绝本轮 `git push`。当前成果已在本地提交，用户重新登录并明确授权远程发布后再同步。
 
 ## 下一步建议
 
