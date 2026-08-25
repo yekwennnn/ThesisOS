@@ -24,9 +24,6 @@ body {
   line-height: 1.7;
   color: var(--ink);
   background: var(--white);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
 ::selection { background: var(--ink); color: var(--white); }
@@ -104,9 +101,8 @@ a { color: inherit; text-decoration: none; }
 /* ---------------------------------------------------------------- 页面骨架 */
 
 .page {
-  flex: 1;
   width: 100%;
-  padding: 56px clamp(24px, 4vw, 72px) 96px;
+  padding: 56px clamp(24px, 4vw, 72px) 64px;
 }
 
 .view { animation: rise 0.35s ease both; }
