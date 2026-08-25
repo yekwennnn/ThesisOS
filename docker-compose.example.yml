@@ -1,0 +1,58 @@
+services:
+  api:
+    build:
+      context: .
+      target: runtime
+      args:
+        PYTHON_IMAGE: "${THESISOS_PYTHON_IMAGE:-python:3.12-slim-bookworm}"
+    image: thesisos-api:local
+    init: true
+    restart: unless-stopped
+    user: "10001:10001"
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    pids_limit: 256
+    ports:
+      - "127.0.0.1:${THESISOS_HOST_PORT:-8000}:8000"
+    environment:
+      THESISOS_WORKSPACE: /var/lib/thesisos
+      THESISOS_MODEL_IDENTIFIER: "${THESISOS_MODEL_IDENTIFIER:-unconfigured}"
+      THESISOS_MODEL_ADAPTER_ARGV: '${THESISOS_MODEL_ADAPTER_ARGV:-[]}'
+      THESISOS_MODEL_TIMEOUT_SECONDS: "${THESISOS_MODEL_TIMEOUT_SECONDS:-120}"
+      THESISOS_MAX_UPLOAD_BYTES: "${THESISOS_MAX_UPLOAD_BYTES:-52428800}"
+      THESISOS_MAX_SOURCE_CHARS: "${THESISOS_MAX_SOURCE_CHARS:-500000}"
+      THESISOS_OBJECT_STORAGE_PROVIDER: "${THESISOS_OBJECT_STORAGE_PROVIDER:-local}"
+      THESISOS_FINANCE_PROVIDER: "${THESISOS_FINANCE_PROVIDER:-disabled}"
+      THESISOS_WIND_CLI_ARGV: '${THESISOS_WIND_CLI_ARGV:-[]}'
+      THESISOS_WIND_TIMEOUT_SECONDS: "${THESISOS_WIND_TIMEOUT_SECONDS:-60}"
+      THESISOS_WIND_MAX_STDOUT_BYTES: "${THESISOS_WIND_MAX_STDOUT_BYTES:-2097152}"
+      # Provider credentials stay outside the image and repository. These empty
+      # defaults keep the local container safely unconfigured.
+      OPENAI_API_KEY: "${OPENAI_API_KEY:-}"
+      OPENAI_BASE_URL: "${OPENAI_BASE_URL:-https://api.openai.com/v1}"
+      THESISOS_OPENAI_TIMEOUT_SECONDS: "${THESISOS_OPENAI_TIMEOUT_SECONDS:-120}"
+      THESISOS_OPENAI_MAX_RETRIES: "${THESISOS_OPENAI_MAX_RETRIES:-2}"
+      THESISOS_OPENAI_RETRY_BASE_SECONDS: "${THESISOS_OPENAI_RETRY_BASE_SECONDS:-0.5}"
+      THESISOS_OPENAI_MAX_OUTPUT_TOKENS: "${THESISOS_OPENAI_MAX_OUTPUT_TOKENS:-32000}"
+      WIND_API_KEY: "${WIND_API_KEY:-}"
+    volumes:
+      - thesisos-workspace:/var/lib/thesisos
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=128m,uid=10001,gid=10001,mode=1770
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import sys,urllib.request; r=urllib.request.urlopen('http://127.0.0.1:8000/health',timeout=3); sys.exit(0 if r.status==200 else 1)"
+      interval: 30s
+      timeout: 5s
+      start_period: 10s
+      retries: 3
+    stop_grace_period: 30s
+
+volumes:
+  thesisos-workspace:
