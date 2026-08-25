@@ -103,7 +103,7 @@ AI 不能把自己的输出标为已验证 Evidence，也不能静默晋升或�
 - README 的“15 分钟完成判断”、真实用户价值、留存和付费意愿尚未经过用户实验验证。
 - 尚未选择 LICENSE，`pyproject.toml` 也没有 license metadata；在用户决定许可证前，不应把当前包视为可公开分发版本。
 - CI workflow 已配置并完成本地等价检查，但尚未在本轮提交后的 GitHub Actions 上实际运行。
-- 本机 `gh auth status` 显示现有 GitHub 凭据失效；同时，直接推送默认 `main` 属于未单独授权的外部发布，安全审批门禁已拒绝本轮 `git push`。当前成果已在本地提交，用户重新登录并明确授权远程发布后再同步。
+- 本机 `gh auth status` 曾显示 CLI 凭据失效，但用户随后明确授权远程发布，原生 Git HTTPS 推送成功；本地 `main` 已同步到 `origin/main`。
 
 ## 下一步建议
 
