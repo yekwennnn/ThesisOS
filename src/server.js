@@ -109,6 +109,16 @@ const LLM_PROVIDERS = [
     keyUrl: 'https://platform.moonshot.cn/console/api-keys',
   },
   {
+    id: 'kimi-coding',
+    name: 'Kimi 订阅（会员）',
+    hint: '用 Kimi 会员订阅额度，到 Kimi Code 控制台创建 API Key',
+    baseUrl: 'https://api.kimi.com/coding/v1',
+    models: ['kimi-for-coding', 'k3-256k', 'k3', 'kimi-for-coding-highspeed'],
+    needsKey: true,
+    keyUrl: 'https://www.kimi.com/code/console',
+    hidden: true, // 不在服务商网格中单独占格，通过 Kimi 卡片下的「使用方式」切换
+  },
+  {
     id: 'glm',
     name: '智谱 GLM',
     hint: '智谱开放平台',

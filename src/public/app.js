@@ -1062,15 +1062,19 @@ function readEditorCard(root) {
 function viewSettings() {
   const s = state.settings;
   const providers = state.providers;
+  const isKimiFamily = (id) => id === 'kimi' || id === 'kimi-coding';
 
-  const llmOptions = providers.llm.map((p) => `
+  const llmOptions = providers.llm.filter((p) => !p.hidden).map((p) => {
+    const checked = s.llm.provider === p.id || (p.id === 'kimi' && isKimiFamily(s.llm.provider));
+    return `
     <div class="provider-option">
-      <input type="radio" name="llm-provider" id="lp-${p.id}" value="${p.id}" ${s.llm.provider === p.id ? 'checked' : ''}>
+      <input type="radio" name="llm-provider" id="lp-${p.id}" value="${p.id}" ${checked ? 'checked' : ''}>
       <label for="lp-${p.id}">
         <div class="p-name">${esc(p.name)}</div>
         <div class="p-hint">${esc(p.hint)}</div>
       </label>
-    </div>`).join('');
+    </div>`;
+  }).join('');
 
   const finOptions = providers.finance.map((p) => `
     <div class="provider-option">
@@ -1092,6 +1096,13 @@ function viewSettings() {
           <div class="section-title">大模型</div>
           <div class="micro-label">选择服务商</div>
           <div class="provider-grid provider-grid-llm">${llmOptions}</div>
+          <div id="kimi-mode-row" style="display:none;margin-bottom:24px">
+            <div class="micro-label">Kimi 使用方式</div>
+            <div class="seg">
+              <label><input type="radio" name="kimi-mode" value="coding"><span>会员订阅（用 Kimi 会员额度）</span></label>
+              <label><input type="radio" name="kimi-mode" value="platform"><span>开放平台（按量付费）</span></label>
+            </div>
+          </div>
           <div id="llm-fields">
             <div class="key-row">
               <div class="field">
@@ -1156,10 +1167,17 @@ function viewSettings() {
 
   function currentLlmProvider() {
     const r = document.querySelector('input[name=llm-provider]:checked');
-    return providers.llm.find((p) => p.id === (r ? r.value : 'demo')) || providers.llm[0];
+    let id = r ? r.value : 'demo';
+    if (id === 'kimi') {
+      const mode = document.querySelector('input[name=kimi-mode]:checked');
+      if (mode && mode.value === 'coding') id = 'kimi-coding';
+    }
+    return providers.llm.find((p) => p.id === id) || providers.llm[0];
   }
 
   function refreshLlmForm(keepModel) {
+    const tile = document.querySelector('input[name=llm-provider]:checked');
+    document.getElementById('kimi-mode-row').style.display = tile && tile.value === 'kimi' ? 'block' : 'none';
     const p = currentLlmProvider();
     const isDemo = p.id === 'demo';
     document.getElementById('llm-fields').style.opacity = isDemo ? '0.45' : '1';
@@ -1171,12 +1189,18 @@ function viewSettings() {
     keyInput.placeholder = state.settings.llm.apiKeySet
       ? `已保存（尾号 ${state.settings.llm.apiKeyTail}），输入以更换`
       : '粘贴你的 API Key';
-    keyHint.innerHTML = p.keyUrl ? `还没有密钥？到官方平台申请：<a href="${esc(p.keyUrl)}" target="_blank" rel="noopener" style="text-decoration:underline">${esc(p.keyUrl.replace(/^https?:\/\//, ''))}</a>` : '';
+    keyHint.innerHTML = p.keyUrl ? `还没有密钥？${p.id === 'kimi-coding' ? '到 Kimi Code 控制台创建：' : '到官方平台申请：'}<a href="${esc(p.keyUrl)}" target="_blank" rel="noopener" style="text-decoration:underline">${esc(p.keyUrl.replace(/^https?:\/\//, ''))}</a>` : '';
   }
 
   document.querySelectorAll('input[name=llm-provider]').forEach((r) => {
     r.onchange = () => refreshLlmForm(false);
   });
+  document.querySelectorAll('input[name=kimi-mode]').forEach((r) => {
+    r.onchange = () => refreshLlmForm(false);
+  });
+  // 初始化 Kimi 使用方式：已保存的是订阅模式则选中，否则默认订阅模式（会员用户最常见）
+  const savedMode = state.settings.llm.provider === 'kimi-coding' ? 'coding' : null;
+  (document.querySelector(`input[name=kimi-mode][value="${savedMode || 'coding'}"]`) || {}).checked = true;
   refreshLlmForm(true);
   if (!state.settings.llm.model && currentLlmProvider().models.length) {
     modelInput.value = currentLlmProvider().models[0];

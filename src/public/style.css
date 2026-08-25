@@ -643,6 +643,23 @@ a { color: inherit; text-decoration: none; }
   .provider-grid-llm { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
 }
 
+/* Kimi 使用方式子切换 */
+.seg { display: inline-flex; border: 1px solid var(--hairline); }
+
+.seg label {
+  position: relative;
+  display: block;
+  padding: 10px 20px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s;
+}
+
+.seg label + label { border-left: 1px solid var(--hairline); }
+.seg label:hover { background: var(--bg-soft); }
+.seg input { position: absolute; opacity: 0; }
+.seg label:has(input:checked) { background: var(--ink); color: var(--white); }
+
 .provider-option { position: relative; }
 
 .provider-option input { position: absolute; opacity: 0; }
